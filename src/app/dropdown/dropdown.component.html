@@ -1,0 +1,19 @@
+<div class="container">
+
+    
+    <div [ngClass]="{'active': showDropdown}" class="dropdown" #dropdown>
+        <div class="search-box">
+            <input [(ngModel)]="filter" (ngModelChange)="onFilterChange()" type="text" placeholder="Filter" />
+        </div>
+        <div *ngFor="let d of _data" (click)="onOptionClicked(d)" class="option">
+            <input [checked]="d.selected" type="checkbox" />
+            <img *ngIf="d.image" class="person" [src]="d.image" />
+            <label class="label-option">{{d.label}}</label>
+        </div>
+    </div>
+    
+    <div (click)="onToggleDropdown()" class="select" #select>{{label}}</div>
+
+</div>
+
+<pre>{{selected | json}}</pre>
