@@ -17,6 +17,12 @@ export class AppComponent implements OnInit {
     this.data.push({label: 'Label 333', image: '', selected: true})
     this.data.push({label: 'Label 4444', image: ''})
     this.data.push({label: 'Label 55555', image: ''})
+    this.data.push({label: 'Label 4444', image: ''})
+    this.data.push({label: 'Label 55555', image: ''})
+    this.data.push({label: 'Label 4444', image: ''})
+    this.data.push({label: 'Label 55555', image: ''})
+    this.data.push({label: 'Label 4444', image: ''})
+    this.data.push({label: 'Label 55555', image: ''})
   }
 
   onSelectedLabels(d) {

@@ -1,9 +1,15 @@
 <div class="container">
-
-    
     <div [ngClass]="{'active': showDropdown}" class="dropdown" #dropdown>
         <div class="search-box">
-            <input [(ngModel)]="filter" (ngModelChange)="onFilterChange()" type="text" placeholder="Filter" />
+            <div>
+                <input [(ngModel)]="selectAll" (ngModelChange)="onSelectAll()" class="select-all" type="checkbox" id="all" />
+                <label for="all" >{{selectCaption}}</label>
+            </div>
+            <div>
+                <div>
+                    <input [(ngModel)]="filter" (ngModelChange)="onFilterChange()" type="text" class="filter-input" placeholder="Filter" />
+                </div>
+            </div>
         </div>
         <div *ngFor="let d of _data" (click)="onOptionClicked(d)" class="option">
             <input [checked]="d.selected" type="checkbox" />
@@ -11,9 +17,16 @@
             <label class="label-option">{{d.label}}</label>
         </div>
     </div>
-    
-    <div (click)="onToggleDropdown()" class="select" #select>{{label}}</div>
+    <div (click)="onToggleDropdown($event)" class="select" #select>
+        <span>{{label}}
+            <span *ngIf="selected.length" class="counter">({{selected.length}})</span>
+        </span>
+        <div class="selected">
+            <span class="tag" *ngFor="let t of tags">{{t}}</span>
+           
+        </div>
 
+    </div>
 </div>
 
 <pre>{{selected | json}}</pre>
